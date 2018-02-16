@@ -5,7 +5,6 @@ import DynamicRoutePage from './pages/dynamic-route.vue';
 import NotFoundPage from './pages/not-found.vue';
 
 import PanelLeftPage from './pages/panel-left.vue';
-import PanelRightPage from './pages/panel-right.vue';
 
 export default [
   {
@@ -15,10 +14,6 @@ export default [
   {
     path: '/panel-left/',
     component: PanelLeftPage,
-  },
-  {
-    path: '/panel-right/',
-    component: PanelRightPage,
   },
   {
     path: '/about/',

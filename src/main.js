@@ -2,9 +2,11 @@
 import Vue from 'vue';
 
 // Import F7
+// import Framework7 from 'framework7';
 import Framework7 from 'framework7/dist/framework7.esm.bundle.js';
 
 // Import F7 Vue Plugin
+// import Framework7Vue from 'framework7-vue';
 import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle.js';
 
 // Import F7 Styles
@@ -29,11 +31,15 @@ new Vue({
   template: '<app/>',
   // Init Framework7 by passing parameters here
   framework7: {
-    id: 'io.framework7.testapp', // App bundle ID
+    id: 'com.tampaunderground.ugkids', // App bundle ID
     name: 'Framework7', // App name
     theme: 'auto', // Automatic theme detection
     // App routes
     routes: Routes,
+    // Enable panel left visibility breakpoint
+    panel: {
+      leftBreakpoint: 960,
+    },
   },
   // Register App Component
   components: {
