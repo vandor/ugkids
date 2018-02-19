@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "build": "node build/build.js",
     "copy-fonts": "cpy node_modules/framework7-icons/fonts/*.* src/fonts && cpy node_modules/material-design-icons/iconfont/*.{eot,ttf,woff,woff2} src/fonts",
     "postinstall": "npm run copy-fonts"
@@ -29,10 +29,12 @@
   "license": "MIT",
   "homepage": "http://tampaunderground.com/kids",
   "dependencies": {
+    "express": "4.16.2",
     "framework7": "^2.0.7",
     "framework7-icons": "^0.8.9",
     "framework7-vue": "^2.0.7",
     "material-design-icons": "^3.0.1",
+    "node-static": "0.7.10",
     "vue": "^2.5.2"
   },
   "devDependencies": {
