@@ -25,6 +25,12 @@ import App from './app';
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
 
+// Theme
+let theme = 'auto';
+if (document.location.search.indexOf('theme=') >= 0) {
+  theme = document.location.search.split('theme=')[1].split('&')[0];
+}
+
 // Init App
 new Vue({
   el: '#app',
@@ -33,7 +39,7 @@ new Vue({
   framework7: {
     id: 'com.tampaunderground.ugkids', // App bundle ID
     name: 'Framework7', // App name
-    theme: 'auto', // Automatic theme detection
+    theme, // Automatic theme detection
     // App routes
     routes: Routes,
     // Enable panel left visibility breakpoint
