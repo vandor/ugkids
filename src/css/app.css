@@ -29,3 +29,15 @@
   content: '';
   z-index: 6000;
 }
+
+/* iOS: Round popup corners */
+@media (min-height: 630px) and (min-width: 630px)
+.ios .popup:not(.popup-tablet-fullscreen) {
+  border-radius: .25rem;
+  overflow: hidden;
+}
+
+/* Give 'back' links in popups some room */
+.popup .navbar .left a.link {
+  margin-left: .7rem;
+}
