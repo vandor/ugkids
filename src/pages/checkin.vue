@@ -9,7 +9,7 @@
     <f7-block inset>
       <iframe class="airtable-embed airtable-dynamic-height"
         src="https://airtable.com/embed/shrHBng7hfocMwcAj?backgroundColor=gray"
-        frameborder="0" onmousewheel="" width="100%" height="750"
+        frameborder="0" onmousewheel="" width="100%" height="1000"
         style="background: transparent; border-width: 0;"></iframe>
     </f7-block>
   </f7-page>
