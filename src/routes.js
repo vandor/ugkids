@@ -1,5 +1,6 @@
 import CheckInPage from './pages/checkin.vue';
 import PanelLeftPage from './pages/panel-left.vue';
+import Callback from './components/Callback.vue';
 
 export default [
   {
@@ -9,5 +10,9 @@ export default [
   {
     path: '/panel-left/',
     component: PanelLeftPage,
+  },
+  {
+    path: '/callback',
+    component: CheckInPage,
   },
 ];

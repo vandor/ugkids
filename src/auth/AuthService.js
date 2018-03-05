@@ -30,7 +30,7 @@ export default class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
-        $f7.views.main.router.navigate('/notes')
+        $f7.views.main.router.navigate('/')
       } else if (err) {
         $f7.views.main.router.navigate('/')
         console.log(err)
