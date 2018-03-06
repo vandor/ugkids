@@ -1,7 +1,9 @@
 <template>
-  <div class="spinner">
-    <img src="../img/loading.svg" alt="loading"/>
-  </div>
+  <f7-page>
+    <div class="spinner">
+      <img src="../img/loading.svg" alt="loading"/>
+    </div>
+  </f7-page>
 </template>
 
 <script>
@@ -11,7 +13,7 @@ const auth = new AuthService()
 export default {
   name: 'callback',
   data () {
-    auth.handleAuthentication()
+    auth.handleAuthentication(this.$f7router)
     return {}
   }
 }

@@ -13,6 +13,6 @@ export default [
   },
   {
     path: '/callback',
-    component: CheckInPage,
+    component: Callback,
   },
 ];

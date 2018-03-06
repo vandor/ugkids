@@ -7,7 +7,7 @@
       <f7-view url="/panel-left/"></f7-view>
     </f7-panel>
 
-    <f7-view id="main-view" url="/" main></f7-view>
+    <f7-view id="main-view" main></f7-view>
 
     <f7-popup id="register-adult">
       <f7-page>

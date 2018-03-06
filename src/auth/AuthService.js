@@ -26,13 +26,14 @@ export default class AuthService {
     this.auth0.authorize()
   }
 
-  handleAuthentication () {
+  handleAuthentication (router) {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
-        $f7.views.main.router.navigate('/')
+        console.log("Logged in success. authResult:", authResult);
+        router.navigate('/')
       } else if (err) {
-        $f7.views.main.router.navigate('/')
+        router.navigate('/')
         console.log(err)
         alert(`Error: ${err.error}. Check the console for further details.`)
       }
