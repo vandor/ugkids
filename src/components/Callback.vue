@@ -11,7 +11,7 @@ import AuthService from '../auth/AuthService'
 const auth = new AuthService()
 
 export default {
-  name: 'callback',
+  name: 'ugkids-callback',
   data () {
     auth.handleAuthentication(this.$f7router)
     return {}
