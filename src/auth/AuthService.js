@@ -31,7 +31,7 @@ export default class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
         console.log("Logged in success. authResult:", authResult);
-        router.navigate('/')
+        router.navigate('/checkin')
       } else if (err) {
         router.navigate('/')
         console.log(err)
@@ -51,7 +51,7 @@ export default class AuthService {
     this.authNotifier.emit('authChange', { authenticated: true })
   }
 
-  logout () {
+  logout (router) {
     // Clear access token and ID token from local storage
     localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
@@ -59,7 +59,7 @@ export default class AuthService {
     this.userProfile = null
     this.authNotifier.emit('authChange', false)
     // navigate to the home route
-    $f7.views.main.router.navigate('/')
+    router.navigate('/')
   }
 
   isAuthenticated () {

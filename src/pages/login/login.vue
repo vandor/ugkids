@@ -1,19 +1,19 @@
 <template>
   <f7-page>
     <div class="spinner">
-      <img src="../img/loading.svg" alt="loading"/>
+      <img src="../../img/loading.svg" alt="loading"/>
     </div>
   </f7-page>
 </template>
 
 <script>
-import AuthService from '../auth/AuthService'
+import AuthService from '../../auth/AuthService'
 const auth = new AuthService()
 
 export default {
-  name: 'ugkids-callback',
+  name: 'ugkids-login',
   data () {
-    auth.handleAuthentication(this.$f7router)
+    auth.login();
     return {}
   }
 }

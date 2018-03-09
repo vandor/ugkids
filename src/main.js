@@ -17,7 +17,7 @@ import IconsStyles from './css/icons.css';
 import AppStyles from './css/app.css';
 
 // Import Routes
-import Routes from './routes.js'
+import Routes from './routes/main.js'
 
 // Import App Component
 import App from './app';

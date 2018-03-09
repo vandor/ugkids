@@ -4,10 +4,10 @@
     <f7-statusbar></f7-statusbar>
 
     <f7-panel left cover>
-      <f7-view url="/panel-left/"></f7-view>
+      <f7-view name="left" :routes="leftRoutes"></f7-view>
     </f7-panel>
 
-    <f7-view id="main-view" main></f7-view>
+    <f7-view main></f7-view>
 
     <f7-popup id="register-adult">
       <f7-page>
@@ -45,10 +45,16 @@
 </template>
 
 <script>
-import RegisterAdult from './pages/register-adult.vue';
+import RegisterAdult from './pages/popup/register-adult.vue';
+import LeftRoutes from './routes/left.js';
 export default {
   components: [
     RegisterAdult,
   ],
+  data() {
+    return {
+      leftRoutes: LeftRoutes,
+    }
+  },
 }
 </script>
