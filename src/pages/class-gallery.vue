@@ -33,7 +33,7 @@ export default {
     authNotifier.on('authChange', authState => {
       this.authenticated = authState.authenticated
       if (!this.authenticated) {
-        this.$f7router.navigate('/home');
+        this.$f7router.navigate('/class-list');
       }
     })
     return {

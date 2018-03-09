@@ -28,7 +28,7 @@ export default [
         component: ClassListSidebar,
       },
       {
-        path: '/toddlers',
+        path: '/jr-elementary',
         component: ClassListSidebar,
       },
       {
