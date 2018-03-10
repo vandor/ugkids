@@ -4,18 +4,27 @@
       <f7-nav-left>
         <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="left"></f7-link>
       </f7-nav-left>
-      <f7-nav-title>Underground Kids</f7-nav-title>
       <f7-nav-right>
         <f7-link v-if="!isAuthenticated()" href="/login">Login</f7-link>
         <f7-link v-if="isAuthenticated() && !isKidsChurchWorker()" href="/checkin">Check-In Page</f7-link>
         <f7-link v-if="isAuthenticated() && isKidsChurchWorker()" href="/class-list">Classes</f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block inset>
-      <div class="logo">
-        <img src="../../img/ugkids.jpg" alt="logo"/>
-      </div>
-    </f7-block>
+    <div class="text-container">
+      <f7-block strong inset>
+        <div class="logo">
+          <img src="../../img/ugkids.jpg" alt="banner"/>
+        </div>
+      </f7-block>
+    </div>
+
+    <f7-block-title class="text-align-center" style="font-weight: bold">Welcome to Kids Church</f7-block-title>
+    <div class="text-container">
+      <f7-block strong inset class="text-align-justify">
+        <p>We love kids - and Jesus - and pray for the opportunity to help them meet him in deep ways. We also know Crucible to be a seminal moment for parents as they grow as missionaries and Kids Church gives them space to hear from the Lord and respond.</p>
+        <p>Kids Church is entirely volunteer run and we are working diligently to improve what we offer our families. Thanks for your continued assistance and prayer.</p>
+      </f7-block>
+    </div>
   </f7-page>
 </template>
 <script>
@@ -48,9 +57,11 @@ export default {
   align-items: center;
 }
 .logo img {
-  max-height: 300px;
-  max-width: 400px;
-  height: auto;
-  width: auto;
+  max-width: 100%;
+}
+.text-container {
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
