@@ -29,7 +29,7 @@
   "license": "MIT",
   "homepage": "http://tampaunderground.com/kids",
   "dependencies": {
-    "auth0-js": "9.3.2",
+    "auth0-js": "9.3.3",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
