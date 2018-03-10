@@ -20,25 +20,13 @@
 <script>
 import AuthService from '../../auth/AuthService'
 const auth = new AuthService()
-const { logout, authenticated, authNotifier } = auth
+const { logout } = auth
 
 export default {
-  data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-      if (!this.authenticated) {
-        this.$f7router.navigate('/home');
-      }
-    })
-    return {
-      auth,
-      authenticated,
-    }
-  },
   methods: {
     logout,
     onPageBeforeIn: function(e) {
-      this.$f7.views.left.router.navigate('/checkin');
+      this.$f7.views.left.router.navigate('/checkin-left');
     },
   }
 }

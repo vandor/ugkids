@@ -7,49 +7,53 @@ import ClassListSidebar from '../pages/class-list/class-list-left.vue';
 
 function routeIfAuthenticated(componentIfAuthenticated, componentIfUnauthenticated) {
   return function(routeTo, routeFrom, resolve, reject) {
-    if (auth.isAuthenticated()) {
-      resolve({ component: componentIfAuthenticated })
+    if (routeTo && routeFrom && routeTo.path === routeFrom.path) {
+      reject()
     } else {
-      resolve({ component: componentIfUnauthenticated || HomeSidebar })
+      if (auth.isAuthenticated()) {
+        resolve({ component: componentIfAuthenticated })
+      } else {
+        resolve({ component: componentIfUnauthenticated || HomeSidebar })
+      }
     }
   }
 }
 
 export default [
   {
-    path: '/',
+    path: '/left',
     component: HomeSidebar,
   },
   {
-    path: '/empty',
+    path: '/empty-left',
     component: EmptySidebar,
   },
   {
-    path: '/login',
+    path: '/login-left',
     component: HomeSidebar,
   },
   {
-    path: '/checkin',
+    path: '/checkin-left',
     async: routeIfAuthenticated(CheckInSidebar),
   },
   {
-    path: '/class-list',
+    path: '/class-list-left',
     async: routeIfAuthenticated(ClassListSidebar),
     routes: [
       {
-        path: '/elementary',
+        path: '/elementary-left',
         async: routeIfAuthenticated(ClassListSidebar),
       },
       {
-        path: '/jr-elementary',
+        path: '/jr-elementary-left',
         async: routeIfAuthenticated(ClassListSidebar),
       },
       {
-        path: '/preschool',
+        path: '/preschool-left',
         async: routeIfAuthenticated(ClassListSidebar),
       },
       {
-        path: '/nursery',
+        path: '/nursery-left',
         async: routeIfAuthenticated(ClassListSidebar),
       },
     ],
