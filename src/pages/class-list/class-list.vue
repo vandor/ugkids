@@ -70,19 +70,11 @@
 <script>
 import AuthService from '../../auth/AuthService'
 const auth = new AuthService()
-const { logout, authenticated, authNotifier } = auth
+const { logout } = auth
 
 export default {
   data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-      if (!this.authenticated) {
-        this.$f7router.navigate('/home');
-      }
-    })
     return {
-      auth,
-      authenticated,
       cardHeaderClasses: 'no-border justify-content-center text-align-center',
     }
   },

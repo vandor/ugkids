@@ -21,7 +21,7 @@
 <script>
 import AuthService from '../auth/AuthService'
 const auth = new AuthService()
-const { logout, authenticated, authNotifier } = auth
+const { logout } = auth
 
 export default {
   name: 'ugkids-class-gallery',
@@ -29,18 +29,6 @@ export default {
     'title',
     'airtableShareId',
   ],
-  data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-      if (!this.authenticated) {
-        this.$f7router.navigate('/class-list');
-      }
-    })
-    return {
-      auth,
-      authenticated,
-    }
-  },
   computed: {
     shareUrl: function() {
       return 'https://airtable.com/embed/' + this.airtableShareId + '?backgroundColor=gray'

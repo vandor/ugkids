@@ -3,7 +3,6 @@ import { AUTH_CONFIG } from './auth0-variables'
 import EventEmitter from 'eventemitter3'
 
 export default class AuthService {
-  authenticated = this.isAuthenticated()
   authNotifier = new EventEmitter()
 
   constructor () {
@@ -31,13 +30,21 @@ export default class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
         console.log("Logged in success. authResult:", authResult);
-        router.navigate('/checkin')
+        if (authResult.idTokenPayload && this.isKidsChurchWorker(authResult.idTokenPayload)) {
+          router.navigate('/class-list');
+        } else {
+          router.navigate('/checkin');
+        }
       } else if (err) {
         router.navigate('/')
         console.log(err)
         alert(`Error: ${err.error}. Check the console for further details.`)
       }
     })
+  }
+
+  isKidsChurchWorker (idTokenPayload) {
+    return idTokenPayload.sub === 'auth0|5aa2d103f3a5604b78f98fd4';
   }
 
   setSession (authResult) {
@@ -57,8 +64,7 @@ export default class AuthService {
     localStorage.removeItem('id_token')
     localStorage.removeItem('expires_at')
     this.userProfile = null
-    this.authNotifier.emit('authChange', false)
-    // navigate to the home route
+    this.authNotifier.emit('authChange', { authenticated: false })
     router.navigate('/')
   }
 
