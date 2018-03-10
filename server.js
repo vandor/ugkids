@@ -8,7 +8,7 @@ var port = process.env.PORT || 8080;
 app = express();
 if (process.env.NODE_ENV === 'production') {
   var enforce = require('express-sslify');
-  app.use(sslRedirect());
+  app.use(sslRedirect({ trustProtoHeader: true }));
 }
 const staticMiddleware = serveStatic(path.join(__dirname, '/www'));
 app.use(staticMiddleware);
