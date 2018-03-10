@@ -37,7 +37,7 @@ export default {
   methods: {
     logout,
     onPageBeforeIn: function(e) {
-      this.$f7.views.left.router.navigate('/class-list-left');
+      this.$f7.views.left.router.navigate('/class-list-left', { reloadAll: true });
     },
   }
 }

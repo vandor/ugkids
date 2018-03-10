@@ -45,7 +45,7 @@ export default {
       auth.handleAuthentication(this.$f7router);
     },
     onPageBeforeIn: function(e) {
-      this.$f7.views.left.router.navigate('/left');
+      this.$f7.views.left.router.navigate('/left', { reloadAll: true });
     },
   }
 }
