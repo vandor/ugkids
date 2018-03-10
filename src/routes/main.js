@@ -28,6 +28,9 @@ export default [
   {
     path: '/login',
     component: LoginPage,
+    options: {
+      animate: false,
+    },
   },
   {
     path: '/callback',

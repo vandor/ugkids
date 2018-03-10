@@ -1,5 +1,6 @@
 <template>
   <f7-page>
+    <f7-navbar></f7-navbar>
     <div class="spinner">
       <img src="../../img/loading.svg" alt="loading"/>
     </div>
