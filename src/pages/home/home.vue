@@ -7,7 +7,8 @@
       <f7-nav-title>Underground Kids</f7-nav-title>
       <f7-nav-right>
         <f7-link v-if="!isAuthenticated()" href="/login">Login</f7-link>
-        <f7-link v-if="isAuthenticated()" href="/checkin">Check-In Page</f7-link>
+        <f7-link v-if="isAuthenticated() && !isKidsChurchWorker()" href="/checkin">Check-In Page</f7-link>
+        <f7-link v-if="isAuthenticated() && isKidsChurchWorker()" href="/class-list">Kids Church Classes</f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-block inset>
@@ -20,6 +21,7 @@
 <script>
 import AuthService from '../../auth/AuthService'
 const auth = new AuthService()
+const { isAuthenticated, isKidsChurchWorker } = auth
 
 export default {
   data () {
@@ -28,9 +30,8 @@ export default {
     }
   },
   methods: {
-    isAuthenticated: function() {
-      return auth.isAuthenticated();
-    },
+    isAuthenticated,
+    isKidsChurchWorker,
     onPageInit: function() {
       auth.handleAuthentication(this.$f7router);
     },

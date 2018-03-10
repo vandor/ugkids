@@ -10,6 +10,7 @@ export default class AuthService {
     this.setSession = this.setSession.bind(this)
     this.logout = this.logout.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
+    this.isKidsChurchWorker = this.isKidsChurchWorker.bind(this)
   }
 
   auth0 = new auth0.WebAuth({
@@ -46,7 +47,8 @@ export default class AuthService {
   }
 
   isKidsChurchWorker (idTokenPayload) {
-    return idTokenPayload.sub === 'auth0|5aa2d103f3a5604b78f98fd4';
+    let id = idTokenPayload && idTokenPayload.sub || localStorage.getItem('id_token_payload_sub')
+    return id === 'auth0|5aa2d103f3a5604b78f98fd4';
   }
 
   setSession (authResult) {
@@ -56,6 +58,7 @@ export default class AuthService {
     )
     localStorage.setItem('access_token', authResult.accessToken)
     localStorage.setItem('id_token', authResult.idToken)
+    localStorage.setItem('id_token_payload_sub', authResult.idTokenPayload.sub)
     localStorage.setItem('expires_at', expiresAt)
     this.authNotifier.emit('authChange', { authenticated: true })
   }
@@ -64,6 +67,7 @@ export default class AuthService {
     // Clear access token and ID token from local storage
     localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
+    localStorage.removeItem('id_token_payload_sub')
     localStorage.removeItem('expires_at')
     this.userProfile = null
     this.authNotifier.emit('authChange', { authenticated: false })
