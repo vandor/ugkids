@@ -28,15 +28,17 @@ export default class AuthService {
   handleAuthentication (router) {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+        router.app.dialog.preloader();
         this.setSession(authResult)
         console.log("Logged in success. authResult:", authResult);
         if (authResult.idTokenPayload && this.isKidsChurchWorker(authResult.idTokenPayload)) {
-          router.navigate('/class-list');
+          router.navigate('/class-list', { reloadCurrent: true });
         } else {
-          router.navigate('/checkin');
+          router.navigate('/checkin', { reloadCurrent: true });
         }
+        router.app.dialog.close();
       } else if (err) {
-        router.navigate('/')
+        router.navigate('/', { reloadCurrent: true })
         console.log(err)
         alert(`Error: ${err.error}. Check the console for further details.`)
       }
@@ -65,7 +67,7 @@ export default class AuthService {
     localStorage.removeItem('expires_at')
     this.userProfile = null
     this.authNotifier.emit('authChange', { authenticated: false })
-    router.navigate('/')
+    router.navigate('/', { clearPreviousHistory: true })
   }
 
   isAuthenticated () {

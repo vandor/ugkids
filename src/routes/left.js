@@ -29,10 +29,6 @@ export default [
     component: HomeSidebar,
   },
   {
-    path: '/callback',
-    component: HomeSidebar,
-  },
-  {
     path: '/checkin',
     async: routeIfAuthenticated(CheckInSidebar),
   },

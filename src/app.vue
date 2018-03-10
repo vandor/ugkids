@@ -7,7 +7,7 @@
       <f7-view name="left" url="/empty" :routes="leftRoutes" :animate="false"></f7-view>
     </f7-panel>
 
-    <f7-view main></f7-view>
+    <f7-view main :push-state="true"></f7-view>
 
     <f7-popup id="register-adult">
       <f7-page>

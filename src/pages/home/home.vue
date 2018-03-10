@@ -1,5 +1,5 @@
 <template>
-  <f7-page @page:beforein="onPageBeforeIn">
+  <f7-page @page:beforein="onPageBeforeIn" @page:init="onPageInit">
     <f7-navbar>
       <f7-nav-left>
         <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="left"></f7-link>
@@ -30,6 +30,9 @@ export default {
   methods: {
     isAuthenticated: function() {
       return auth.isAuthenticated();
+    },
+    onPageInit: function() {
+      auth.handleAuthentication(this.$f7router);
     },
     onPageBeforeIn: function(e) {
       this.$f7.views.left.router.navigate('/');

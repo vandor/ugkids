@@ -2,7 +2,6 @@ import AuthService from '../auth/AuthService'
 const auth = new AuthService()
 import HomePage from '../pages/home/home.vue';
 import CheckInPage from '../pages/checkin/checkin.vue';
-import CallbackPage from '../pages/callback/callback.vue';
 import LoginPage from '../pages/login/login.vue';
 import ClassListPage from '../pages/class-list/class-list.vue';
 import ElementaryClassPage from '../pages/class-list/elementary/elementary-gallery.vue';
@@ -30,11 +29,8 @@ export default [
     component: LoginPage,
     options: {
       animate: false,
+      pushState: false,
     },
-  },
-  {
-    path: '/callback',
-    component: CallbackPage,
   },
   {
     path: '/checkin',
