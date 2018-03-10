@@ -4,7 +4,7 @@
     <f7-statusbar></f7-statusbar>
 
     <f7-panel left cover>
-      <f7-view name="left" :routes="leftRoutes"></f7-view>
+      <f7-view name="left" :routes="leftRoutes" :animate="false"></f7-view>
     </f7-panel>
 
     <f7-view main></f7-view>

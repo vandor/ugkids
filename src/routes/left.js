@@ -1,6 +1,18 @@
+import AuthService from '../auth/AuthService'
+const auth = new AuthService()
 import HomeSidebar from '../pages/home/home-left.vue';
 import CheckInSidebar from '../pages/checkin/checkin-left.vue';
 import ClassListSidebar from '../pages/class-list/class-list-left.vue';
+
+function routeIfAuthenticated(componentIfAuthenticated, componentIfUnauthenticated) {
+  return function(routeTo, routeFrom, resolve, reject) {
+    if (auth.isAuthenticated()) {
+      resolve({ component: componentIfAuthenticated })
+    } else {
+      resolve({ component: componentIfUnauthenticated || HomeSidebar })
+    }
+  }
+}
 
 export default [
   {
@@ -12,32 +24,32 @@ export default [
     component: HomeSidebar,
   },
   {
-    path: '/checkin',
-    component: CheckInSidebar,
-  },
-  {
     path: '/callback',
     component: HomeSidebar,
   },
   {
+    path: '/checkin',
+    async: routeIfAuthenticated(CheckInSidebar),
+  },
+  {
     path: '/class-list',
-    component: ClassListSidebar,
+    async: routeIfAuthenticated(ClassListSidebar),
     routes: [
       {
         path: '/elementary',
-        component: ClassListSidebar,
+        async: routeIfAuthenticated(ClassListSidebar),
       },
       {
         path: '/jr-elementary',
-        component: ClassListSidebar,
+        async: routeIfAuthenticated(ClassListSidebar),
       },
       {
         path: '/preschool',
-        component: ClassListSidebar,
+        async: routeIfAuthenticated(ClassListSidebar),
       },
       {
         path: '/nursery',
-        component: ClassListSidebar,
+        async: routeIfAuthenticated(ClassListSidebar),
       },
     ],
   },

@@ -1,3 +1,5 @@
+import AuthService from '../auth/AuthService'
+const auth = new AuthService()
 import HomePage from '../pages/home/home.vue';
 import CheckInPage from '../pages/checkin/checkin.vue';
 import CallbackPage from '../pages/callback/callback.vue';
@@ -7,6 +9,16 @@ import ElementaryClassPage from '../pages/class-list/elementary/elementary-galle
 import JrElementaryClassPage from '../pages/class-list/jr-elementary/jr-elementary-gallery.vue';
 import PreschoolClassPage from '../pages/class-list/preschool/preschool-gallery.vue';
 import NurseryClassPage from '../pages/class-list/nursery/nursery-gallery.vue';
+
+function routeIfAuthenticated(componentIfAuthenticated, componentIfUnauthenticated) {
+  return function(routeTo, routeFrom, resolve, reject) {
+    if (auth.isAuthenticated()) {
+      resolve({ component: componentIfAuthenticated })
+    } else {
+      resolve({ component: componentIfUnauthenticated || HomePage })
+    }
+  }
+}
 
 export default [
   {
@@ -18,32 +30,32 @@ export default [
     component: LoginPage,
   },
   {
-    path: '/checkin',
-    component: CheckInPage,
-  },
-  {
     path: '/callback',
     component: CallbackPage,
   },
   {
+    path: '/checkin',
+    async: routeIfAuthenticated(CheckInPage),
+  },
+  {
     path: '/class-list',
-    component: ClassListPage,
+    async: routeIfAuthenticated(ClassListPage),
     routes: [
       {
         path: '/elementary',
-        component: ElementaryClassPage,
+        async: routeIfAuthenticated(ElementaryClassPage),
       },
       {
         path: '/jr-elementary',
-        component: JrElementaryClassPage,
+        async: routeIfAuthenticated(JrElementaryClassPage),
       },
       {
         path: '/preschool',
-        component: PreschoolClassPage,
+        async: routeIfAuthenticated(PreschoolClassPage),
       },
       {
         path: '/nursery',
-        component: NurseryClassPage,
+        async: routeIfAuthenticated(NurseryClassPage),
       },
     ],
   },
