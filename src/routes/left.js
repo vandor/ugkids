@@ -1,6 +1,7 @@
 import AuthService from '../auth/AuthService'
 const auth = new AuthService()
 import HomeSidebar from '../pages/home/home-left.vue';
+import EmptySidebar from '../pages/empty-left.vue';
 import CheckInSidebar from '../pages/checkin/checkin-left.vue';
 import ClassListSidebar from '../pages/class-list/class-list-left.vue';
 
@@ -18,6 +19,10 @@ export default [
   {
     path: '/',
     component: HomeSidebar,
+  },
+  {
+    path: '/empty',
+    component: EmptySidebar,
   },
   {
     path: '/login',
