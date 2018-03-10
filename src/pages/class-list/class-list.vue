@@ -9,66 +9,61 @@
         <f7-link @click="logout($f7router)">Logout</f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-row>
-      <f7-col width="50">
-				<f7-link href="/class-list/nursery">
-					<f7-card class="demo-card-header-pic">
-						<f7-card-header
-							class="no-border"
-							valign="bottom"
-							style="background-color: #F5C500"
-						>Nursery</f7-card-header>
-						<f7-card-content>
-							<p class="label">Infants - 2 Year Olds</p>
-						</f7-card-content>
-					</f7-card>
-				</f7-link>
+    <f7-row no-gap style="margin-top: 1rem;">
+      <f7-col width="0" tablet-width="10"></f7-col>
+      <f7-col width="50" tablet-width="20">
+        <f7-link href="/class-list/nursery" class="class-list-link">
+          <f7-card class="class-list-card">
+            <f7-card-header
+              :class="cardHeaderClasses"
+              style="background-color: #F5C500"
+            >Nursery</f7-card-header>
+            <f7-card-content>
+              <p class="label">Infants - 2 Year Olds</p>
+            </f7-card-content>
+          </f7-card>
+        </f7-link>
       </f7-col>
-      <f7-col width="50">
-				<f7-link href="/class-list/preschool">
-					<f7-card class="demo-card-header-pic">
-						<f7-card-header
-							class="no-border"
-							valign="bottom"
-							style="background-color: #00AC9E"
-						>Preschool</f7-card-header>
-						<f7-card-content>
-							<p class="label">3 - 5 Year Olds</p>
-						</f7-card-content>
-					</f7-card>
-				</f7-link>
+      <f7-col width="50" tablet-width="20">
+        <f7-link href="/class-list/preschool" class="class-list-link">
+          <f7-card class="class-list-card">
+            <f7-card-header
+              :class="cardHeaderClasses"
+              style="background-color: #00AC9E"
+            >Preschool</f7-card-header>
+            <f7-card-content>
+              <p class="label">3 - 5 Year Olds</p>
+            </f7-card-content>
+          </f7-card>
+        </f7-link>
       </f7-col>
-    </f7-row>
-
-    <f7-row>
-      <f7-col width="50">
-				<f7-link href="/class-list/jr-elementary">
-					<f7-card class="demo-card-header-pic">
-						<f7-card-header
-							class="no-border"
-							valign="bottom"
-							style="background-color: #FF573F"
-						>Jr Elementary</f7-card-header>
-						<f7-card-content>
-							<p class="label">Kindergarten - 2nd Graders</p>
-						</f7-card-content>
-					</f7-card>
-				</f7-link>
+      <f7-col width="50" tablet-width="20">
+        <f7-link href="/class-list/jr-elementary" class="class-list-link">
+          <f7-card class="class-list-card">
+            <f7-card-header
+              :class="cardHeaderClasses"
+              style="background-color: #FF573F"
+            >Junior<br>Elementary</f7-card-header>
+            <f7-card-content>
+              <p class="label">K - 2nd Graders</p>
+            </f7-card-content>
+          </f7-card>
+        </f7-link>
       </f7-col>
-      <f7-col width="50">
-				<f7-link href="/class-list/elementary">
-					<f7-card class="demo-card-header-pic">
-						<f7-card-header
-							class="no-border"
-							valign="bottom"
-							style="background-color: #5800EE"
-						>Elementary</f7-card-header>
-						<f7-card-content>
-							<p class="label">3rd - 5th Graders</p>
-						</f7-card-content>
-					</f7-card>
-				</f7-link>
+      <f7-col width="50" tablet-width="20">
+        <f7-link href="/class-list/elementary" class="class-list-link">
+          <f7-card class="class-list-card">
+            <f7-card-header
+              :class="cardHeaderClasses"
+              style="background-color: #5800EE"
+            >Elementary</f7-card-header>
+            <f7-card-content>
+              <p class="label">3rd - 5th Graders</p>
+            </f7-card-content>
+          </f7-card>
+        </f7-link>
       </f7-col>
+      <f7-col width="0" tablet-width="10"></f7-col>
     </f7-row>
   </f7-page>
 </template>
@@ -88,6 +83,7 @@ export default {
     return {
       auth,
       authenticated,
+      cardHeaderClasses: 'no-border justify-content-center text-align-center',
     }
   },
   methods: {
@@ -99,13 +95,21 @@ export default {
 }
 </script>
 <style scoped>
-.demo-card-header-pic .card-header {
+.class-list-link {
+  width: 100%;
+}
+.class-list-card {
+  width: 100%;
+}
+.class-list-card .card-header {
   height: 10rem;
   background-size: cover;
   background-position: center;
   color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
 }
-.demo-card-header-pic .card-content-padding .label {
+.class-list-card .card-content-padding .label {
   color: #8e8e93;
 }
 </style>
