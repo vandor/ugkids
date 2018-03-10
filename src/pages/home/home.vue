@@ -8,7 +8,7 @@
       <f7-nav-right>
         <f7-link v-if="!isAuthenticated()" href="/login">Login</f7-link>
         <f7-link v-if="isAuthenticated() && !isKidsChurchWorker()" href="/checkin">Check-In Page</f7-link>
-        <f7-link v-if="isAuthenticated() && isKidsChurchWorker()" href="/class-list">Kids Church Classes</f7-link>
+        <f7-link v-if="isAuthenticated() && isKidsChurchWorker()" href="/class-list">Classes</f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-block inset>
