@@ -1,5 +1,5 @@
 <template>
-  <ugkids-class-gallery title="Nursery Class" airtable-share-id="shrWTpWQxUDLQZdUN"></ugkids-class-gallery>
+  <ugkids-class-gallery title="Nursery Class" airtable-share-id="shrIzw0xgxJbvEMue"></ugkids-class-gallery>
 </template>
 <script>
 import ClassGalleryComponent from '../../class-gallery.vue';
