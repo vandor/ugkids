@@ -18,7 +18,7 @@
         </f7-navbar>
         <f7-block inset>
           <iframe class="airtable-embed airtable-dynamic-height"
-            src="https://airtable.com/embed/shrnZH4Zg7sOXEc2M?backgroundColor=gray"
+            src="https://airtable.com/embed/shrVw4scukcdCJt6l?backgroundColor=gray"
             frameborder="0" onmousewheel="" width="100%" height="1100"
             style="background: transparent; border-width: 0;"></iframe>
         </f7-block>
@@ -34,7 +34,7 @@
         </f7-navbar>
         <f7-block inset>
           <iframe class="airtable-embed airtable-dynamic-height"
-            src="https://airtable.com/embed/shr73akQjtEdaUKkk?backgroundColor=gray"
+            src="https://airtable.com/embed/shrCSvtXw367M3Eoe?backgroundColor=gray"
             frameborder="0" onmousewheel="" width="100%" height="1050"
             style="background: transparent; border-width: 0;"></iframe>
         </f7-block>
